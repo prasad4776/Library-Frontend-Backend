@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+}
+
+nav {
+    text-align: center;
+}
+
+.button a {
+    background-color: #5ad1ff80;
+    margin: 10px;
+    padding: 5px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #000;
+    border: solid 1px #9b9b9b61;
+}

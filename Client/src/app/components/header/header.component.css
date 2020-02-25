@@ -1,0 +1,13 @@
+.button {
+    background-color: #5ad1ff80;
+    margin: 10px;
+    padding: 5px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #000;
+}
+
+.headbutton {
+    width: 30%;
+    margin: auto;
+}

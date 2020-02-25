@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+<h1>{{title}}</h1>
+<!-- <nav class="button">
+   <a routerLink = '/books' routerLinkActive = "active"> Books </a>
+   <a routerLink = '/authors' routerLinkActive = "active"> Authors </a>
+   <a routerLink = '/issues' routerLinkActive = "active"> Issues </a>
+   <a routerLink = '/users' routerLinkActive = "active"> Users </a>
+   
+
+  </nav> -->
+<div style="text-align:left">
+    <h1>
+        Books
+    </h1>
+    <!-- <ul>
+      <li *ngFor="let book of books">
+        <h2 (click)="bookClicked(book)"> {{book.id}} {{book.book_name}}</h2>
+      </li>
+    </ul> -->
+
+    <table>
+        <tr>
+
+            <th>Book Id</th>
+            <th>Book Name</th>
+            <th>Price </th>
+        </tr>
+        <tr *ngFor="let book of books">
+            <td> {{book.id}} </td>
+            <td (click)="bookClicked(book)">{{book.book_name}} </td>
+            <td> {{book.price}}</td>
+        </tr>
+    </table>
+
+
+
+
+
+
+    <hr>
+
+    <div class="myform">
+        <label> Book Name </label>
+        <input type="text" [(ngModel)]="selectedBook.book_name" /><br>
+
+        <label> Price </label>
+        <input type="text" [(ngModel)]="selectedBook.price" /><br>
+        <div class="bmargin">
+            <button *ngIf="selectedBook.id != -1" (click)="updateBook()"> PUT </button>
+            <button *ngIf="selectedBook.id == -1" (click)="createBook()"> POST </button>
+            <button *ngIf="selectedBook.id != -1" (click)="deleteBook()"> DELETE </button>
+        </div>
+    </div>
+
+</div>

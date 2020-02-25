@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<h1>{{title}}</h1>
+<!-- <nav class="button">
+   <a routerLink = '/books' routerLinkActive = "active"> Books </a>
+   <a routerLink = '/authors' routerLinkActive = "active"> Authors </a>
+   <a routerLink = '/issues' routerLinkActive = "active"> Issues </a>
+   <a routerLink = '/users' routerLinkActive = "active"> Users </a>
+  </nav> -->
+<div style="text-align:left">
+    <h1>
+        Issued
+    </h1>
+
+    <table>
+        <tr>
+            <th> Issue Id </th>
+            <th>Book Id</th>
+            <th>Person Id</th>
+            <th>Issue Date</th>
+            <th>Submission Date</th>
+        </tr>
+        <tr *ngFor="let issue of issues">
+            <td> {{issue.id}} </td>
+            <td> {{issue.book_id}} </td>
+            <td> {{issue.person_id}}</td>
+            <td (click)="issueClicked(issue)"> {{issue.issue_date}}</td>
+            <td> {{issue.submission_date}}</td>
+        </tr>
+    </table>
+
+    <hr>
+    <div class="myform">
+        <label>Book Id</label> <input type="text" [(ngModel)]="selectedIssue.book_id" /><br>
+        <label>Person Id</label> <input type="text" [(ngModel)]="selectedIssue.person_id" /><br>
+        <label>Issue Date </label><input type="text" [(ngModel)]="selectedIssue.issue_date" /><br>
+        <label>Submission Date </label><input type="text" [(ngModel)]="selectedIssue.submission_date" /><br>
+
+        <div class="bmargin">
+            <button *ngIf="selectedIssue.id != -1" (click)="updateIssue()"> PUT </button>
+            <button *ngIf="selectedIssue.id == -1" (click)="createIssue()"> POST </button>
+            <button *ngIf="selectedIssue.id != -1" (click)="deleteIssue()"> DELETE </button>
+        </div>
+    </div>
+
+</div>

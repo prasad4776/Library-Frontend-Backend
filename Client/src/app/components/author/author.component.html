@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+<h1>{{title}}</h1>
+<!-- <nav class="button">
+   <a routerLink = '/books' routerLinkActive = "active"> Books </a>
+   <a routerLink = '/authors' routerLinkActive = "active"> Authors </a>
+   <a routerLink = '/issues' routerLinkActive = "active"> Issues </a>
+   <a routerLink = '/users' routerLinkActive = "active"> Users </a>
+
+  </nav> -->
+<div style="text-align:left">
+    <h1>
+        Authors
+    </h1>
+
+    <table>
+        <tr>
+
+            <th>Author Id</th>
+            <th>Author First Name</th>
+            <th>Author Last Name </th>
+            <th>Book Id</th>
+
+        </tr>
+        <tr *ngFor="let author of authors">
+            <td> {{author.id}} </td>
+            <td (click)="authorClicked(author)">{{author.first_name}} </td>
+            <td> {{author.last_name}}</td>
+            <td> {{author.book}}</td>
+
+        </tr>
+    </table>
+
+
+
+
+    <hr>
+    <div class="myform">
+        <label>Author First Name :- </label><input type="text" [(ngModel)]="selectedAuthor.first_name" /><br>
+        <label>Author Last Name :-  </label><input type="text" [(ngModel)]="selectedAuthor.last_name" /><br>
+        <label>Book Id :- </label> <input type="text" [(ngModel)]="selectedAuthor.book" /><br>
+        <div class="bmargin">
+            <button *ngIf="selectedAuthor.id != -1" (click)="updateAuthor()"> PUT </button>
+            <button *ngIf="selectedAuthor.id == -1" (click)="createAuthor()"> POST </button>
+            <button *ngIf="selectedAuthor.id != -1" (click)="deleteAuthor()"> DELETE </button>
+        </div>
+    </div>
+
+</div>
